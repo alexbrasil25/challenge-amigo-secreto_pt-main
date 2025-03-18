@@ -4,16 +4,17 @@ function adicionarAmigo(){
     let campoNome = document.getElementById('amigo');
     let nomeAmigo = campoNome.value;
     let resultado = document.getElementById('resultado');
+    
+    if(resultado.value != ""){
+            resultado.innerHTML="";
+        }
 
     if(!nomeAmigo){
         alert('Por favor, insira um nome válido!');
         return;
     }
 
-    if(resultado.value != ""){
-        resultado.innerHTML="";
-    }
-
+    
     nomesAmigos.push(nomeAmigo);
     campoNome.value = "";
     campoNome.focus();
@@ -37,7 +38,7 @@ function sortearAmigo(){
         alert('A lista está vazia, por favor insira um nome para ser sorteado!');
         return;
     }
-    let nomeSorteado = nomesAmigos[parseInt(Math.random() * nomesAmigos.length)];
+    let nomeSorteado = nomesAmigos[Math.floor((Math.random() * nomesAmigos.length))];
     console.log(nomeSorteado);
     let resultado = document.getElementById('resultado');
     nomesAmigos = [];
